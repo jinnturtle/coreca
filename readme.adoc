@@ -1,4 +1,8 @@
 = Compound Reliability Calculator
 
-Prints compound reliability at every step. Expects a file with a list of success
-percentages (one per line).
+Prints compound reliability at every step. Expects a list of success percentages
+given via stdin or file.
+
+== File Format
+List of comma or newline separated percentages, can be floating point values,
+values should not contain the percentage symbol ("%").

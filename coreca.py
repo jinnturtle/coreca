@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 import sys
+
+
 program_name = "Compound Reliability Calculator"
 ver_maj = 0
-ver_min = 1
+ver_min = 2
 ver_patch = 0
 
 def ver_str():
@@ -20,13 +22,21 @@ def use_err(text):
     about()
 
 def read_chances(filename):
-    print(f"processing {filename}")
-    with open(filename) as f:
-        lines = f.readlines();
-
     chances = []
-    for l in lines:
-        chances.append(float(l) / 100)
+
+    input_src = None
+
+    # read values from stdin if file arg is "-"
+    if filename == "-":
+        print(f"*** reading from stdin")
+        input_src = sys.stdin
+    else:
+        input_src = open(filename)
+        print(f"*** reading from {filename}")
+
+    for i,l in enumerate(input_src.readlines()):
+        for val in l.split(sep = " "):
+            chances.append(float(val) / 100)
 
     return chances
 
