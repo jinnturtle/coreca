@@ -1,0 +1,4 @@
+Compound Reliability Calculator
+
+Prints compound reliability at every step. Expects a file with a list of success
+percentages (one per line).
